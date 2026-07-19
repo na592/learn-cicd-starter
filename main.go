@@ -99,13 +99,7 @@ func main() {
 		IdleTimeout:       60 * time.Second,
 	}
 
-	sanitized := strings.Map(func(r rune) rune {
-		if r < 0x20 || r == 0x7f {
-			return -1
-		}
-		return r
-	}, port)
-	log.Printf("Serving on port: %s\n", sanitized)
+	log.Printf("Serving on port: %s\n", port)
 	log.Fatal(srv.ListenAndServe())
 }
 
