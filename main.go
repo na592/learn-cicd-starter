@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 	"strconv"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
@@ -100,7 +100,7 @@ func main() {
 	}
 	portNum, err := strconv.Atoi(port)
 	if err != nil {
-      log.Fatalf("Invalid port number: %d", portNum)
+		log.Fatalf("Invalid port number: %d", portNum)
 	}
 	log.Fatal(srv.ListenAndServe())
 }
