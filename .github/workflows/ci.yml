@@ -24,7 +24,7 @@ jobs:
       - name: Testing Code
         run: go test ./... -cover
 
-   
+  style: 
     name: Style
     steps:
       - name: Check out code
