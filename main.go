@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"time"
 	"os"
 
 	"github.com/go-chi/chi"
@@ -89,9 +90,14 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
+        Addr:              ":" + port,
+        Handler:           router,
+        ReadHeaderTimeout: 5 * time.Second, // Prevent Slowloris
+        ReadTimeout:       10 * time.Second,
+        WriteTimeout:      10 * time.Second,
+        IdleTimeout:       60 * time.Second,
 	}
+
 	sanitized := strings.Map(func(r rune) rune {
 		if r < 0x20 || r == 0x7f {
 			return -1
