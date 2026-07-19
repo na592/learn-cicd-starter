@@ -100,7 +100,7 @@ func main() {
 	}
 	portNum, err := strconv.Atoi(port)
 	if err != nil {
-      log.Fatalf("Invalid port number: %s", portNum)
+      log.Fatalf("Invalid port number: %d", portNum)
 	}
 	log.Fatal(srv.ListenAndServe())
 }
