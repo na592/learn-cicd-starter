@@ -43,7 +43,7 @@ jobs:
         run: test -z $(staticcheck ./...)
 
   gosec:
-    name: Gosec
+    name: gosec
     runs-on: ubuntu-latest
       
     steps:
